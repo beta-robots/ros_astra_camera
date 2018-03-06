@@ -34,15 +34,12 @@ set(obfilter "Off")
 endif()
 
 include(ExternalProject)
-
-# message("********* ${CMAKE_CURRENT_SOURCE_DIR} ")
-#/home/andreu/dev/ros_ws/src/rob1500/ros_astra_camera
 ExternalProject_Add(astra_openni2
   PREFIX astra_openni2
-  # SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/astra_openni2/OpenNI2
-  GIT_REPOSITORY https://github.com/orbbec/OpenNI2.git
-  GIT_TAG orbbec_ros
-  CONFIGURE_COMMAND echo "no need to configure"
+  SOURCE_DIR ${PROJECT_SOURCE_DIR}/../OpenNI2
+  # GIT_REPOSITORY https://github.com/orbbec/OpenNI2.git
+  # GIT_TAG orbbec_ros
+  CONFIGURE_COMMAND echo "No need to configure"
   BUILD_IN_SOURCE 1
   BUILD_COMMAND make release FILTER=${obfilter}
   INSTALL_DIR openni2
